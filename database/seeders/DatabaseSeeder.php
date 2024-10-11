@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Address;
 use App\Models\Orders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,17 +17,22 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'sun',
-            'email' => 'sun@example.com',
-            'password'=>'1234'
-        ]);
+        // User::factory()->create([
+        //     'name' => 'john',
+        //     'email' => 'john@example.com',
+        //     'password'=>'1234'
+        // ]);
 
         // Orders::create([
         //     'user_id'=>2,
         //     'product_name'=>'Samsung Tablet',
         //     'total_amount'=>1320
         // ]);
+
+        Address::create([
+            'user_id'=>2,
+            'country'=>'nigeria'
+        ]);
         
     }
 }

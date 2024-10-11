@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Address;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -47,4 +49,10 @@ Route::get('/joins', function(){
     ->get();
 
     dd($fullOuterJoins);
+});
+
+Route::get('/relations', function(){
+    $users = User::all();
+    $addresses = Address::all();
+    return view('relations', compact('users','addresses'));
 });

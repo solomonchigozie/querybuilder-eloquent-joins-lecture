@@ -45,4 +45,22 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    function address() {
+        /**
+         * no need to specify the foreign key column because
+         * we followed the correct model_pk naming convention
+         */
+        // return $this->hasOne(Address::class);
+
+        /**
+         * if we did not follow the correct naming convention 
+         * then we need to specify the foreignkey and the localkey
+         * 
+         * user_id is coming from the address table
+         * id is the local key coming from the users model
+         */
+        return $this->hasOne(Address::class, 'user_id', 'id');
+    }
+
 }
