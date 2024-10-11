@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Address;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -58,5 +59,25 @@ Route::get('/relations', function(){
 });
 
 Route::get('/posts', function() {
-    
+    // Post::insert([
+    //     [
+    //         'user_id' => 1,
+    //         'name'=> 'how to cook noodles',
+    //     ],
+    //     [
+    //         'user_id'=>1,
+    //         'name' => 'learn karate'
+    //     ],
+    //     [
+    //         'user_id'=>2,
+    //         'name'=>'how to make shoes'
+    //     ]
+    // ]);
+    $posts = Post::all();
+    return view('posts', compact('posts'));
+});
+
+Route::get('/users', function(){
+    $users = User::all();
+    return view('users', compact('users'));
 });
