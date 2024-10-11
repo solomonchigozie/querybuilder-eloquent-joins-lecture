@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Address::create([
-            'user_id'=>2,
+            'user_id'=>1,
             'country'=>'nigeria'
         ]);
         

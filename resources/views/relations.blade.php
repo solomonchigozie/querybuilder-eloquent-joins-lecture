@@ -23,5 +23,17 @@
             <p>User: {{ $address->user->name }} - Email: {{ $address->user->email }}  </p>
         @endforeach
     </div>
+
+    <hr>
+    <div>
+        <h1>hasMany (users as addresses)</h1>
+        @foreach($users as $user)
+            <h4>{{$user->name}}</h4>
+            @foreach($user->addresses as $address)
+                <p>Address: {{ $address->country }} </p>
+            @endforeach
+            <hr>
+        @endforeach
+    </div>
 </body>
 </html>

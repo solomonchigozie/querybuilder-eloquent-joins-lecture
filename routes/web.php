@@ -56,3 +56,7 @@ Route::get('/relations', function(){
     $addresses = Address::all();
     return view('relations', compact('users','addresses'));
 });
+
+Route::get('/posts', function() {
+    
+});
