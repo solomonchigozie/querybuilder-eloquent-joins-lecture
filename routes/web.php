@@ -2,6 +2,7 @@
 
 use App\Models\Address;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -59,22 +60,43 @@ Route::get('/relations', function(){
 });
 
 Route::get('/posts', function() {
-    // Post::insert([
+    // Tag::insert([
     //     [
-    //         'user_id' => 1,
-    //         'name'=> 'how to cook noodles',
+    //         'name'=> 'Javascript',
     //     ],
     //     [
-    //         'user_id'=>1,
-    //         'name' => 'learn karate'
+    //         'name' => 'PHP'
     //     ],
     //     [
-    //         'user_id'=>2,
-    //         'name'=>'how to make shoes'
+    //         'name'=>'Laravel'
     //     ]
     // ]);
+
+    //give tags to post
+    // $post = Post::find(2);
+    // $post = Post::first();
+    // $tag = Tag::first();
+
+    /**
+     * the tags you will be assigning to the post will be stored in the
+     * pivot table post_tag
+     */
+    // $post->tag()->attach($tag);
+    // $post->tag()->attach([2,3]);
+    //detach to remove
+    // $post->tag()->detach([2]);
+    /**
+     * sync() automatically attach and detach tags
+     */
+    // $post->tag()->sync([3,2]);
+    
     $posts = Post::all();
     return view('posts', compact('posts'));
+});
+
+Route::get('/tags', function(){
+    $tags = Tag::all();
+    return view('tag', compact('tags'));
 });
 
 Route::get('/users', function(){
