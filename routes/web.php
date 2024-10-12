@@ -124,3 +124,23 @@ Route::get('/location', function() {
 
     return view('location', compact('country'));
 });
+
+Route::get('/image', function(){
+    /**
+     * polymorphic relationship
+     */
+
+    // $user= User::find(1);
+    // $user->image()->create([
+    //     'path'=>'/uploads/user_one.jpg'
+    // ]);
+
+    $post= Post::find(1);
+    // $post->image()->create([
+    //     'path'=>'/uploads/post_one.jpg'
+    // ]);
+
+    return $post->image;
+
+    // dd($user);
+});

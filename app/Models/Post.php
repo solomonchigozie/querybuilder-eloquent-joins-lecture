@@ -36,5 +36,9 @@ class Post extends Model
          */
         return $this->belongsToMany(Tag::class);
     }
+
+    function image(){
+        return $this->morphOne(Image::class, 'imageable');
+    }
     
 }
